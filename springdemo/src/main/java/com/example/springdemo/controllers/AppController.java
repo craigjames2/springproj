@@ -19,7 +19,7 @@ public class AppController {
 	}
 	
 	@PostMapping("/postmessage")
-	public String postMessage(@RequestBody String newMessage) {
+	public String postMessage(@RequestBody MessagePacket newMessage) {
 		try {
 			return pulsarService.postMessage(newMessage);
 		} catch(Exception e) {
