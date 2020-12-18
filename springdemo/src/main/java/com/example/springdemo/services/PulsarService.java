@@ -1,6 +1,9 @@
 package com.example.springdemo.services;
 
+import com.example.springdemo.models.MessagePacket;
 import java.nio.charset.StandardCharsets;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
 
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.TypedMessageBuilder;
@@ -37,8 +40,9 @@ public class PulsarService {
         }
     }
     
-    public String postMessage(String msg) throws Exception {
-        byte[] content = msg.getBytes();
+    public String postMessage(MessagePacket msg) throws Exception {
+	ObjectMapper objMap = new ObjectMapper();
+        byte[] content = objMap.writeValueAsBytes(msg);
         MessageId msgId = producer.newMessage().value(content).send();
         return "Successful Post";
     }
