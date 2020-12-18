@@ -22,9 +22,9 @@ public class PulsarService {
     public static final String TOPIC = "my-topic";
     private static final String PULSAR_CLIENT_EXCEPTION_MSG = "There was a PulsarClientException";
     
-    private PulsarClient client;
-    private Producer<byte[]> producer;
-    private Consumer<byte[]> consumer;
+    public PulsarClient client;
+    public Producer<byte[]> producer;
+    public Consumer<byte[]> consumer;
     
     public PulsarService() {
         try {
