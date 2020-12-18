@@ -44,7 +44,7 @@ public class PulsarService {
 								   //convert to pojo for fun, not useful at this point without successful import
 								  //String pojoPrep = new String(msg.getData());
 								   //MessagePacket pojoDemo = new MessagePacket(pojoPrep);
-
+									return String(msg.getData());
 					
 								   
 								   consumer.acknowledge(msg);
