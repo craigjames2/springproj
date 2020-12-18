@@ -39,7 +39,7 @@ public class PulsarService {
     
     public String postMessage(String msg) {
         byte[] content = msg.getBytes();
-        MessageID msgId = producer.newMessage().value(content).send();
+        MessageId msgId = producer.newMessage().value(content).send();
         return "Successful Post";
     }
     public void closeOut() {
