@@ -1,7 +1,19 @@
 package com.example.springdemo.services;
 
-import org.apache.pulsar.client.api.*;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.pulsar.client.api.Message;
+import org.apache.pulsar.client.api.TypedMessageBuilder;
+import org.apache.pulsar.client.api.MessageId;
+import org.apache.pulsar.client.api.Consumer;
+import org.apache.pulsar.client.api.Producer;
+import org.apache.pulsar.client.api.PulsarClient;
+import org.apache.pulsar.client.api.PulsarClientException;
+import org.apache.pulsar.client.api.ClientBuilder;
+
+import java.util.stream.IntStream;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class PulsarService {
@@ -37,6 +49,7 @@ public class PulsarService {
         System.out.println("Shut down");
         }
     public String getMessage() {
+	   boolean waiting = true;
         while (waiting) {
 							   Message msg = consumer.receive();
 							   try {
