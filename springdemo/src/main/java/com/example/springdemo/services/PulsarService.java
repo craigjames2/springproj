@@ -50,6 +50,7 @@ public class PulsarService {
         }
     public String getMessage() {
 	   boolean waiting = true;
+	   String pojoPrep = "";
         while (waiting) {
 							   Message msg = consumer.receive();
 							   try {
