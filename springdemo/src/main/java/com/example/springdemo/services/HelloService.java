@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class HelloService {
-	public static final String greeting = "Hello";
+	public static final String greeting = "Hello, World!";
 	public HelloService() {
 		System.out.println("running");
 	}
