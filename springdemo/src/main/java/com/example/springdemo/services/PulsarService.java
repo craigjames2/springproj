@@ -42,13 +42,13 @@ public class PulsarService {
         MessageId msgId = producer.newMessage().value(content).send();
         return "Successful Post";
     }
-    public void closeOut() {
+    public void closeOut() throws Exception {
         producer.close();
         consumer.close();
         client.close();
         System.out.println("Shut down");
         }
-    public String getMessage() {
+    public String getMessage() throws Exception{
 	   boolean waiting = true;
 	   String pojoPrep = "";
         while (waiting) {
