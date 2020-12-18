@@ -10,6 +10,7 @@ import com.example.springdemo.services.PulsarService;
 public class AppController {
 	@Autowired
 	HelloService helloService;
+	@Autowired
 	PulsarService pulsarService;
 	
 	@GetMapping("/hello")
