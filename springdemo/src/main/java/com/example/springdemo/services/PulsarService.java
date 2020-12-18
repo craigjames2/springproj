@@ -64,6 +64,7 @@ public class PulsarService {
 								   waiting = false;
 							   } catch (Exception e) {
 								   consumer.negativeAcknowledge(msg);
+								   return "consume failed";
 							   }
 						   }
     }
