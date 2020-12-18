@@ -62,12 +62,13 @@ public class PulsarService {
 								   
 								   consumer.acknowledge(msg);
 								   waiting = false;
-								   return pojoPrep;
+								   
 							   } catch (Exception e) {
 								   consumer.negativeAcknowledge(msg);
-								   return "consume failed";
+								   String pojoPrep = "error in consume fn";
 							   }
 						   }
+	    return pojoPrep;
     }
 }
     
