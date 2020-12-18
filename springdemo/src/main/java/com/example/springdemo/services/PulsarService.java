@@ -57,11 +57,12 @@ public class PulsarService {
 								   //convert to pojo for fun, not useful at this point without successful import
 								  String pojoPrep = new String(msg.getData());
 								   //MessagePacket pojoDemo = new MessagePacket(pojoPrep);
-									return pojoPrep;
+									
 					
 								   
 								   consumer.acknowledge(msg);
 								   waiting = false;
+								   return pojoPrep;
 							   } catch (Exception e) {
 								   consumer.negativeAcknowledge(msg);
 								   return "consume failed";
