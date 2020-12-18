@@ -24,6 +24,7 @@ public class AppController {
 	@PostMapping("/postmessage")
 	public String postMessage(@RequestBody MessagePacket newMessage) {
 		try {
+			System.out.println("att posting");
 			return pulsarService.postMessage(newMessage);
 		} catch(Exception e) {
 			return "failure in controller";
