@@ -29,7 +29,7 @@ public class PulsarService {
         byte[] content = msg.getBytes();
         MessageID msgId = producer.newMessage().value(content).send();
         return "Successful Post";
-        
+    }
     public void closeOut() {
         producer.close();
         consumer.close();
@@ -53,5 +53,6 @@ public class PulsarService {
 								   consumer.negativeAcknowledge(msg);
 							   }
 						   }
+    }
         
     
