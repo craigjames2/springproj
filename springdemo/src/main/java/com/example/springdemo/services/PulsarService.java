@@ -32,9 +32,11 @@ public class PulsarService {
     public PulsarService() {
         try {
             client = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
+		System.out.println(" service setup - client ");
             producer = client.newProducer().topic(TOPIC).create();
+		System.out.println(" service setup - producer ");
             consumer = client.newConsumer().topic(TOPIC).subscriptionName(SUBSCRIPTION1).subscribe();
-		System.out.println(" service setup complete ");
+		System.out.println(" service setup - consumer ");
         } catch (PulsarClientException e) {
             System.out.println(PULSAR_CLIENT_EXCEPTION_MSG + " in constructor :(");
             System.out.println(e);
