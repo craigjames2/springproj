@@ -56,7 +56,7 @@ public class PulsarService {
 							   try {
 								   System.out.printf("Message rec: %s", new String(msg.getData()));
 								   //convert to pojo for fun, not useful at this point without successful import
-								  String pojoPrep = new String(msg.getData());
+								  pojoPrep = new String(msg.getData());
 								   //MessagePacket pojoDemo = new MessagePacket(pojoPrep);
 									
 					
@@ -66,7 +66,7 @@ public class PulsarService {
 								   
 							   } catch (Exception e) {
 								   consumer.negativeAcknowledge(msg);
-								   String pojoPrep = "error in consume fn";
+								   pojoPrep = "error in consume fn";
 							   }
 						   }
 	    return pojoPrep;
