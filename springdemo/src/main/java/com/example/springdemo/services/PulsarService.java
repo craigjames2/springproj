@@ -34,13 +34,16 @@ public class PulsarService {
             client = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
             producer = client.newProducer().topic(TOPIC).create();
             consumer = client.newConsumer().topic(TOPIC).subscriptionName(SUBSCRIPTION1).subscribe();
+		System.out.println(" service setup complete ");
         } catch (PulsarClientException e) {
             System.out.println(PULSAR_CLIENT_EXCEPTION_MSG + " in constructor :(");
             System.out.println(e);
+		System.out.println("end error");
         }
     }
     
     public String postMessage(MessagePacket msg) throws Exception {
+	   System.out.println("new post");
 	ObjectMapper objMap = new ObjectMapper();
         byte[] content = objMap.writeValueAsBytes(msg);
         MessageId msgId = producer.newMessage().value(content).send();
