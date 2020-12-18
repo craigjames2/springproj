@@ -55,9 +55,9 @@ public class PulsarService {
 							   try {
 								   System.out.printf("Message rec: %s", new String(msg.getData()));
 								   //convert to pojo for fun, not useful at this point without successful import
-								  //String pojoPrep = new String(msg.getData());
+								  String pojoPrep = new String(msg.getData());
 								   //MessagePacket pojoDemo = new MessagePacket(pojoPrep);
-									return String(msg.getData());
+									return pojoPrep;
 					
 								   
 								   consumer.acknowledge(msg);
