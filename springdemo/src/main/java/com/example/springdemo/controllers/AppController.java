@@ -20,7 +20,11 @@ public class AppController {
 	
 	@PostMapping("/postmessage")
 	public String postMessage(@RequestBody String newMessage) {
-		return pulsarService.postMessage(newMessage);
+		try {
+			return pulsarService.postMessage(newMessage);
+		} catch(Exception e) {
+			return "failure in controller";
+		}
 	}
 		     
 	@GetMapping("/getmessage")
