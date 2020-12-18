@@ -25,7 +25,7 @@
 				        <artifactId>jackson-databind</artifactId>
 						    <version>2.11.1</version>
 						    </dependency>
-		<dependency>
+		
 		<dependency>
 
 			<groupId>org.apache.pulsar</groupId>
