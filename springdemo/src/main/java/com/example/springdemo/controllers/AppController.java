@@ -29,6 +29,10 @@ public class AppController {
 		     
 	@GetMapping("/getmessage")
 	public String getMessage() {
+		try {
 		return pulsarService.getMessage();
+		} catch(Exception e) {
+			return "failure in controller";
+		}
 	}
 }
