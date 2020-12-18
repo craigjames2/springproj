@@ -48,7 +48,9 @@ public class PulsarService {
 	   System.out.println("new post");
 	ObjectMapper objMap = new ObjectMapper();
         byte[] content = objMap.writeValueAsBytes(msg);
+	    System.out.println("sending");
         MessageId msgId = producer.newMessage().value(content).send();
+	System.out.println("return from post");
         return "Successful Post";
     }
     public void closeOut() throws Exception {
