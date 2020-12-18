@@ -37,7 +37,7 @@ public class PulsarService {
         }
     }
     
-    public String postMessage(String msg) {
+    public String postMessage(String msg) throws Exception {
         byte[] content = msg.getBytes();
         MessageId msgId = producer.newMessage().value(content).send();
         return "Successful Post";
